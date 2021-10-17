@@ -8,13 +8,13 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class RequisicaoPedido {
 
-    @NotBlank
+    @NotBlank(message = "O campo nome do produto é obrigatório!")
     private String nomeProduto;
 
-    @NotBlank
+    @NotBlank(message = "O campo URL do produto é obrigatório!")
     private String urlProduto;
 
-    @NotBlank
+    @NotBlank(message = "O campo URL da imagem é obrigatório!")
     private String urlImagem;
 
     private String descricao;
