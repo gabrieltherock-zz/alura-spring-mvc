@@ -8,29 +8,30 @@
             <div class="jumbotron mb-0">
                 <h1 class="display-4">Novo Pedido</h1>
             </div>
-
-            <form action="/pedido/novo" method="POST">
-                <div>
-                    <label>Produto</label>
-                    <input name="nomeProduto" placeholder="nome do produto"/>
-                    <small>Informe o nome do produto.</small>
-                </div>
-                <div>
-                    <label>URL</label>
-                    <input name="urlProduto" placeholder="URL do produto"/>
-                    <small>Cole aqui a URL do produto.</small>
-                </div>
-                <div>
-                    <label>Imagem</label>
-                    <input name="urlImagem" placeholder="URL da imagem"/>
-                    <small>Cole aqui a URL da imagem do produto.</small>
-                </div>
-                <div>
-                    <label>Descrição</label>
-                    <textarea name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador."></textarea>
-                </div>
-                <button type="submit">Cadastrar</button>
-            </form>
+            <div class="card mt-3">
+                <form th:object="${requisicaoPedido}" class="card-body" action="/pedido/novo" method="POST">
+                    <div class="form-group">
+                        <label>Produto</label>
+                        <input th:field="*{nomeProduto}" class="form-control" name="nomeProduto" placeholder="Nome do produto"/>
+                        <small>Informe o nome do produto.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>URL</label>
+                        <input th:field="*{urlProduto}" class="form-control" name="urlProduto" placeholder="URL do produto"/>
+                        <small>Cole aqui a URL do produto.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagem</label>
+                        <input th:field="*{urlImagem}" class="form-control" name="urlImagem" placeholder="URL da imagem"/>
+                        <small>Cole aqui a URL da imagem do produto.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Descrição</label>
+                        <textarea th:field="*{descricao}" class="form-control" name="descricao" placeholder="Adicione detalhes importantes para ajudar o comprador."></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>
